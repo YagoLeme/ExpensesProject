@@ -1,5 +1,6 @@
 import 'package:expenses/models/transaction.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 main() => runApp(ExpensesApp());
 
@@ -79,7 +80,7 @@ class MyHomePage extends StatelessWidget {
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             )),
-                        Text(tr.date.toString(),
+                        Text(DateFormat('d MMM y').format(tr.date),
                             style: TextStyle(
                               color: Color.fromARGB(255, 82, 81, 81),
                             )),
@@ -89,6 +90,29 @@ class MyHomePage extends StatelessWidget {
                 ),
               );
             }).toList(),
+          ),
+          const Card(
+            elevation: 5,
+            child: Padding(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Título'),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Valor (R\$)'),
+                  ),
+                  Row(
+                    children: [
+                      TextButton(onPressed: () {
+                        
+                      }, child: child)
+                    ],
+                  )  
+                ]
+              ),
+            ),
           ),
         ],
       ),
